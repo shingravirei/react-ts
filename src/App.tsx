@@ -1,9 +1,5 @@
-const App = (): JSX.Element => {
-    return (
-        <div>
-            <h1>Hello, React!</h1>
-        </div>
-    );
-};
+import Router from './Router';
 
-export default App;
+export default (): JSX.Element => {
+    return <Router />;
+};
