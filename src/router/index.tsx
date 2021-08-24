@@ -1,4 +1,16 @@
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Suspense } from 'react';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import routes, { IRoute } from './routes';
+
+const renderRoutes = (routes: Array<IRoute>): JSX.Element => (
+    <Switch>
+        {routes.map(({ path, exact, Component }, i) => (
+            <Route path={path} exact={exact} key={i}>
+                <Component />
+            </Route>
+        ))}
+    </Switch>
+);
 
 const R = (): JSX.Element => {
     return (
@@ -17,18 +29,9 @@ const R = (): JSX.Element => {
                         </li>
                     </ul>
                 </nav>
-
-                <Switch>
-                    <Route exact path="/">
-                        <h1>Home</h1>
-                    </Route>
-                    <Route path="/about">
-                        <h1>About</h1>
-                    </Route>
-                    <Route path="/users">
-                        <h1>Users</h1>
-                    </Route>
-                </Switch>
+                <Suspense fallback={<h1>Loading...</h1>}>
+                    {renderRoutes(routes)}
+                </Suspense>
             </div>
         </Router>
     );
