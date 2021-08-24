@@ -2,7 +2,7 @@ import { ComponentType, lazy } from 'react';
 
 export interface IRoute {
     path: string;
-    exact: boolean;
+    exact?: boolean;
     Component: ComponentType;
 }
 
@@ -10,17 +10,16 @@ const routes: Array<IRoute> = [
     {
         path: '/',
         exact: true,
-        Component: lazy(() => import('../Components/Home')),
+        Component: lazy(() => import('../Pages/Home')),
     },
     {
         path: '/about',
         exact: true,
-        Component: lazy(() => import('../Components/About')),
+        Component: lazy(() => import('../Pages/About')),
     },
     {
-        path: '/users',
-        exact: true,
-        Component: lazy(() => import('../Components/Users')),
+        path: '*',
+        Component: lazy(() => import('../Pages/NoMatch')),
     },
 ];
 
