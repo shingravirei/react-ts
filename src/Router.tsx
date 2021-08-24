@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-export default (): JSX.Element => {
+const R = (): JSX.Element => {
     return (
         <Router>
             <div>
@@ -33,3 +33,5 @@ export default (): JSX.Element => {
         </Router>
     );
 };
+
+export default R;

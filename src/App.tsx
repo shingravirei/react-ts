@@ -1,5 +1,7 @@
 import Router from './Router';
 
-export default (): JSX.Element => {
+const App = (): JSX.Element => {
     return <Router />;
 };
+
+export default App;
