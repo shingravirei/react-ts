@@ -1,12 +1,6 @@
 import { ComponentType, lazy } from 'react';
 
-export interface IRoute {
-    path: string;
-    exact?: boolean;
-    Component: ComponentType;
-}
-
-const routes: Array<IRoute> = [
+const routes: route[] = [
     {
         path: '/',
         exact: true,
@@ -24,3 +18,11 @@ const routes: Array<IRoute> = [
 ];
 
 export default routes;
+
+declare global {
+    interface route {
+        path: string;
+        exact?: boolean;
+        Component: ComponentType;
+    }
+}
