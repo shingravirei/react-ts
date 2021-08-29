@@ -4,6 +4,7 @@
     "author": "shingravirei",
     "license": "MIT",
     "homepage": "https://github.com/shingravirei/react-ts#readme",
+    "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
