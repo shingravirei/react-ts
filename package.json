@@ -9,7 +9,7 @@
         "dev": "vite",
         "build": "tsc && vite build",
         "serve": "vite preview",
-        "test": "jest --watch"
+        "test": "jest . --watch"
     },
     "dependencies": {
         "react": "^17.0.2",

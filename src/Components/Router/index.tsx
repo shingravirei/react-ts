@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Navbar from '../Components/Navbar';
+import Navbar from '../Navbar';
 import routes from './routes';
 
 const renderRoutes = (routes: route[]): JSX.Element => (
