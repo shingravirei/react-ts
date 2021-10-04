@@ -4,16 +4,16 @@ const routes: route[] = [
     {
         path: '/',
         exact: true,
-        Component: lazy(() => import('../Pages/Home')),
+        Component: lazy(() => import('../../Pages/Home')),
     },
     {
         path: '/about',
         exact: true,
-        Component: lazy(() => import('../Pages/About')),
+        Component: lazy(() => import('../../Pages/About')),
     },
     {
         path: '*',
-        Component: lazy(() => import('../Pages/NoMatch')),
+        Component: lazy(() => import('../../Pages/NoMatch')),
     },
 ];
 
