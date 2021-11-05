@@ -1,7 +1,13 @@
-import Router from '../../Router';
+import { Outlet } from 'react-router';
+import Navbar from '../Navbar';
 
 const App = (): JSX.Element => {
-    return <Router />;
+    return (
+        <div>
+            <Navbar />
+            <Outlet />
+        </div>
+    );
 };
 
 export default App;
