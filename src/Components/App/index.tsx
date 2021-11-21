@@ -5,7 +5,9 @@ const App = (): JSX.Element => {
     return (
         <div>
             <Navbar />
-            <Outlet />
+            <main>
+                <Outlet />
+            </main>
         </div>
     );
 };
