@@ -7,9 +7,10 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "tsc && vite build",
+        "build": "vite build",
+        "test": "jest --watchAll",
         "serve": "vite preview",
-        "test": "jest --watchAll"
+        "check": "tsc"
     },
     "dependencies": {
         "react": "^17.0.2",
