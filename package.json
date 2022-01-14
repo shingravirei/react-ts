@@ -19,7 +19,7 @@
         "react-router-dom": "^6.2.1"
     },
     "devDependencies": {
-        "@swc/jest": "^0.2.15",
+        "@swc/jest": "^0.2.17",
         "@testing-library/jest-dom": "^5.16.1",
         "@testing-library/react": "^12.1.2",
         "@types/jest": "^27.4.0",
@@ -27,14 +27,14 @@
         "@types/react-dom": "^17.0.11",
         "@types/react-router-dom": "^5.3.2",
         "@types/testing-library__jest-dom": "^5.14.2",
-        "@typescript-eslint/eslint-plugin": "^5.9.0",
-        "@typescript-eslint/parser": "^5.9.0",
+        "@typescript-eslint/eslint-plugin": "^5.9.1",
+        "@typescript-eslint/parser": "^5.9.1",
         "@vitejs/plugin-react": "1.1.4",
         "eslint": "^8.6.0",
         "eslint-plugin-react": "^7.28.0",
         "eslint-plugin-react-hooks": "^4.3.0",
         "jest": "^27.4.7",
         "typescript": "^4.5.4",
-        "vite": "^2.7.10"
+        "vite": "^2.7.12"
     }
 }
