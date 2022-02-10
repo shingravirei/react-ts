@@ -2,9 +2,8 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
+      "ESNext",
+      "DOM"
     ],
     "types": [
       "vite/client",

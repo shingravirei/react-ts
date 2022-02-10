@@ -4,8 +4,8 @@ import './index.css';
 import Router from './Router';
 
 ReactDOM.render(
-    <StrictMode>
-        <Router />
-    </StrictMode>,
-    document.getElementById('root'),
+	<StrictMode>
+		<Router />
+	</StrictMode>,
+	document.getElementById('root'),
 );

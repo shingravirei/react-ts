@@ -6,28 +6,28 @@ const Home = lazy(() => import('./Pages/Home'));
 const About = lazy(() => import('./Pages/About'));
 
 const Router = () => (
-    <BrowserRouter>
-        <Routes>
-            <Route path={'/'} element={<App />}>
-                <Route
-                    index
-                    element={
-                        <Suspense fallback={<h1>loading route...</h1>}>
-                            <Home />
-                        </Suspense>
-                    }
-                />
-                <Route
-                    path="about"
-                    element={
-                        <Suspense fallback={<h1>loading route...</h1>}>
-                            <About />
-                        </Suspense>
-                    }
-                />
-            </Route>
-        </Routes>
-    </BrowserRouter>
+	<BrowserRouter>
+		<Routes>
+			<Route path={'/'} element={<App />}>
+				<Route
+					index
+					element={
+						<Suspense fallback={<h1>loading route...</h1>}>
+							<Home />
+						</Suspense>
+					}
+				/>
+				<Route
+					path="about"
+					element={
+						<Suspense fallback={<h1>loading route...</h1>}>
+							<About />
+						</Suspense>
+					}
+				/>
+			</Route>
+		</Routes>
+	</BrowserRouter>
 );
 
 export default Router;
