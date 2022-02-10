@@ -1,32 +1,37 @@
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './Components/App';
+import { ReactLocation, Router as BrowserRouter } from 'react-location';
+import { ReactLocationDevtools } from 'react-location-devtools';
 
 const Home = lazy(() => import('./Pages/Home'));
 const About = lazy(() => import('./Pages/About'));
 
+const location = new ReactLocation();
+
 const Router = () => (
-	<BrowserRouter>
-		<Routes>
-			<Route path={'/'} element={<App />}>
-				<Route
-					index
-					element={
-						<Suspense fallback={<h1>loading route...</h1>}>
-							<Home />
-						</Suspense>
-					}
-				/>
-				<Route
-					path="about"
-					element={
-						<Suspense fallback={<h1>loading route...</h1>}>
-							<About />
-						</Suspense>
-					}
-				/>
-			</Route>
-		</Routes>
+	<BrowserRouter
+		location={location}
+		routes={[
+			{
+				path: '/',
+				element: (
+					<Suspense fallback={'loading...'}>
+						<Home />
+					</Suspense>
+				),
+			},
+			{
+				path: '/about',
+				element: (
+					<Suspense fallback={'loading...'}>
+						<About />
+					</Suspense>
+				),
+			},
+		]}
+	>
+		<App />
+		<ReactLocationDevtools initialIsOpen={false} />
 	</BrowserRouter>
 );
 
