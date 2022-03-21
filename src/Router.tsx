@@ -1,35 +1,24 @@
-import { lazy, Suspense } from 'react';
-import App from './Components/App';
-import { ReactLocation, Router as BrowserRouter } from 'react-location';
+import { ReactLocation, Route, Router as BrowserRouter } from 'react-location';
 import { ReactLocationDevtools } from 'react-location-devtools';
-
-const Home = lazy(() => import('./Pages/Home'));
-const About = lazy(() => import('./Pages/About'));
+import App from './Components/App';
+import About from './Pages/About';
+import Home from './Pages/Home';
 
 const location = new ReactLocation();
 
+const routes: Route[] = [
+	{
+		path: '/',
+		element: <Home />,
+	},
+	{
+		path: '/about',
+		element: <About />,
+	},
+];
+
 const Router = () => (
-	<BrowserRouter
-		location={location}
-		routes={[
-			{
-				path: '/',
-				element: (
-					<Suspense fallback={'loading...'}>
-						<Home />
-					</Suspense>
-				),
-			},
-			{
-				path: '/about',
-				element: (
-					<Suspense fallback={'loading...'}>
-						<About />
-					</Suspense>
-				),
-			},
-		]}
-	>
+	<BrowserRouter location={location} routes={routes}>
 		<App />
 		<ReactLocationDevtools initialIsOpen={false} />
 	</BrowserRouter>
