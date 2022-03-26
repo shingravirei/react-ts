@@ -5,7 +5,7 @@ const NoMatch = (): JSX.Element => {
 
 	return (
 		<h1>
-			No match for <code>{location.pathname}</code>
+			404 Bro. <code>{location.pathname}</code>
 		</h1>
 	);
 };
