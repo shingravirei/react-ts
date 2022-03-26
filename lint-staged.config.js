@@ -1,3 +1,3 @@
 export default {
-	'*.{ts,tsx}': ['npx tsc --noEmit', 'npx eslint', 'npx prettier --write'],
+	'*.{ts,tsx}': ['npx eslint', 'npx prettier --write'],
 };

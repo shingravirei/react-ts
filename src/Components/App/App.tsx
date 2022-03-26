@@ -7,7 +7,7 @@ const App = (): JSX.Element => {
 	return (
 		<>
 			<Navbar />
-			<Suspense fallback={<p>loading...</p>}>
+			<Suspense fallback={<p>loading....</p>}>
 				{useRoutes(routes)}
 			</Suspense>
 		</>
