@@ -11,7 +11,7 @@ export type HeadingRef = HTMLHeadingElement;
 
 export type HeadingVariants = 'h1' | 'h2' | 'h3' | 'h4';
 
-const HeadingStyles: Record<HeadingVariants, string> = {
+const headingStyles: Record<HeadingVariants, string> = {
 	h1: 'text-4xl font-semibold',
 	h2: 'text-3xl font-semibold',
 	h3: 'text-2xl font-semibold',
@@ -24,7 +24,7 @@ export const Heading = forwardRef<HeadingRef, HeadingProps>(
 			variant,
 			{
 				...rest,
-				className: clsx(HeadingStyles[variant], className),
+				className: clsx(headingStyles[variant], className),
 				ref,
 			},
 			children,
