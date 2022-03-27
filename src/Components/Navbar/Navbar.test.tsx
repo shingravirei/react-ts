@@ -1,9 +1,9 @@
-import '@testing-library/jest-dom/extend-expect';
-import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 import Navbar from './Navbar';
+import { test, expect } from 'vitest';
+import { render, screen } from '../../test/utils';
 
-it('Navbar', () => {
+test('Navbar', () => {
 	render(
 		<MemoryRouter>
 			<Navbar />
