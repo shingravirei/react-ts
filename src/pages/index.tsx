@@ -2,7 +2,7 @@ import { Button } from '../Components/Button';
 import { Heading } from '../Components/Typography';
 
 const Home = (): JSX.Element => (
-	<div className='bg-gray-900 h-full'>
+	<div className='h-full'>
 		<Heading variant='h2'>Home, Sweet, Home</Heading>
 		<Button>Button</Button>
 		<Button variant='info'>Button</Button>
