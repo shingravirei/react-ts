@@ -1,10 +1,10 @@
-import { Button, Heading } from '../Components/Typography';
+import { Button } from '../Components/Button';
+import { Heading } from '../Components/Typography';
 
 const Home = (): JSX.Element => (
 	<>
-		<Heading variant='h1' className={'text-indigo-900 text-base'}>
-			Home, Sweet, Home
-		</Heading>
+		<Heading variant='h2'>Home, Sweet, Home</Heading>
+		<Button>Button</Button>
 		<Button variant='info'>Button</Button>
 		<Button variant='danger'>Button</Button>
 	</>
