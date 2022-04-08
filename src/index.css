@@ -2,6 +2,10 @@ html {
 	height: 100%;
 }
 
+body * {
+	outline: 2px solid red;
+}
+
 body {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
