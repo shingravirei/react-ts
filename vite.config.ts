@@ -1,12 +1,12 @@
 /// <reference types="vitest" />
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import Pages from 'vite-plugin-pages';
-import WindiCSS from 'vite-plugin-windicss';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [Pages(), WindiCSS(), react()],
+	plugins: [Pages(), vanillaExtractPlugin(), react()],
 	test: {
 		globals: true,
 		environment: 'jsdom',

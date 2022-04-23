@@ -26,6 +26,7 @@ module.exports = {
 	rules: {
 		'react/jsx-uses-react': 'off',
 		'react/react-in-jsx-scope': 'off',
+		'react/prop-types': 'off',
 	},
 	ignorePatterns: ['.eslintrc.cjs', 'prettier.config.cjs'],
 };

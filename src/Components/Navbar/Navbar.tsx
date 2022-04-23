@@ -9,6 +9,11 @@ const Navbar = (): JSX.Element => (
 			<li>
 				<Link to='/about'>About</Link>
 			</li>
+			<li>
+				<Link to='/other' style={{ color: '#ECEFF4' }}>
+					Other
+				</Link>
+			</li>
 		</ul>
 	</nav>
 );

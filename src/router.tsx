@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
-import App from './Components/App/App';
+import App from './Components/App';
 
 const Router = () => (
 	<BrowserRouter>
