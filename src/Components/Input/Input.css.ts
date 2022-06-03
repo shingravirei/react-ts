@@ -3,6 +3,7 @@ import { recipe } from '@vanilla-extract/recipes';
 import { vars } from '../../styles/theme.css';
 
 export const btn = style({
+	all: 'unset',
 	padding: `${vars.space.pb2} ${vars.space.pb4}`,
 	fontFamily: vars.font.family.sans,
 	fontSize: vars.font.size.md,
