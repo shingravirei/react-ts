@@ -1,9 +1,26 @@
+import { DOMAttributes, ElementType, HTMLAttributes, ReactNode } from 'react';
 import { Button } from '../Components/Button';
 import { Input } from '../Components/Input';
 import { Heading } from '../Components/Typography';
 
+type BoxProps = {
+	children: ReactNode;
+	as: ElementType;
+} & DOMAttributes<HTMLElement> &
+	HTMLAttributes<HTMLElement>;
+
+const Box = ({ as, children, ...rest }: BoxProps): JSX.Element => {
+	const Component = as || 'div';
+
+	return <Component {...rest}>{children}</Component>;
+};
+
 const Home = (): JSX.Element => (
 	<div className='h-full'>
+		<button>asdsd</button>
+		<Box as={'p'} onClick={() => alert('hello')}>
+			Hello
+		</Box>
 		<Heading variant='h1'>Home, Sweet, Home</Heading>
 		<div>
 			<Button onClick={() => console.log('hey')}>Button</Button>
