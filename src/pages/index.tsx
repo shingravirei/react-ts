@@ -17,7 +17,7 @@ const Box = ({ as, children, ...rest }: BoxProps): JSX.Element => {
 
 const Home = (): JSX.Element => (
 	<div className='h-full'>
-		<button>asdsd</button>
+		<button>Button</button>
 		<Box as={'p'} onClick={() => alert('hello')}>
 			Hello
 		</Box>
