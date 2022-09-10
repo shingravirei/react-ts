@@ -22,12 +22,6 @@
 		"commit": "commit"
 	},
 	"dependencies": {
-		"@vanilla-extract/css": "^1.9.0",
-		"@vanilla-extract/recipes": "^0.2.5",
-		"@vanilla-extract/sprinkles": "^1.5.0",
-		"@vanilla-extract/vite-plugin": "^3.4.0",
-		"clsx": "^1.2.1",
-		"polished": "^4.2.2",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-router": "^6.3.0",

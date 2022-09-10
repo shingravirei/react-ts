@@ -1,5 +1,3 @@
-import { Heading } from '../Components/Typography';
-
-const About = (): JSX.Element => <Heading variant='h2'>about</Heading>;
+const About = (): JSX.Element => <h1>About</h1>;
 
 export default About;

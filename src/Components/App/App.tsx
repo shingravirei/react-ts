@@ -5,7 +5,7 @@ import Navbar from '../Navbar';
 
 const App = (): JSX.Element => {
 	return (
-		<div className='h-full'>
+		<div>
 			<Navbar />
 			<Suspense fallback={<p>loading....</p>}>
 				{useRoutes(routes)}
