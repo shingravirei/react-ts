@@ -1,9 +1,8 @@
 module.exports = {
 	root: true,
 	env: {
-		es2021: true,
+		es2022: true,
 		browser: true,
-		jest: true,
 	},
 	parser: '@typescript-eslint/parser',
 	plugins: ['@typescript-eslint'],
@@ -20,7 +19,7 @@ module.exports = {
 		},
 	},
 	parserOptions: {
-		ecmaVersion: 2021,
+		ecmaVersion: 2022,
 		sourceType: 'module',
 	},
 	rules: {
