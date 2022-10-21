@@ -23,10 +23,34 @@ module.exports = {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 	},
+	overrides: [
+		{
+			files: ['src/**/*.tsx', 'src/**/*.jsx'],
+			rules: {
+				'unicorn/filename-case': ['off'],
+			},
+		},
+	],
 	rules: {
 		'react/jsx-uses-react': 'off',
 		'react/react-in-jsx-scope': 'off',
 		'react/prop-types': 'off',
+		'unicorn/prevent-abbreviations': [
+			'error',
+			{
+				replacements: {
+					props: {
+						properties: false,
+					},
+					ref: {
+						reference: false,
+					},
+					vars: {
+						variables: false,
+					},
+				},
+			},
+		],
 	},
-	ignorePatterns: ['.eslintrc.cjs', 'prettier.config.cjs'],
+	ignorePatterns: ['*.cjs', '*.html', '*.config.js'],
 };
