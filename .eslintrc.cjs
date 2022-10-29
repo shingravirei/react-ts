@@ -9,9 +9,11 @@ module.exports = {
 	extends: [
 		'eslint:recommended',
 		'plugin:react/recommended',
+		'plugin:react/jsx-runtime',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:react-hooks/recommended',
 		'plugin:unicorn/recommended',
+		'prettier',
 	],
 	settings: {
 		react: {
@@ -32,9 +34,6 @@ module.exports = {
 		},
 	],
 	rules: {
-		'react/jsx-uses-react': 'off',
-		'react/react-in-jsx-scope': 'off',
-		'react/prop-types': 'off',
 		'unicorn/prevent-abbreviations': [
 			'error',
 			{
@@ -47,6 +46,9 @@ module.exports = {
 					},
 					vars: {
 						variables: false,
+					},
+					env: {
+						environment: false,
 					},
 				},
 			},
