@@ -1,13 +1,16 @@
-import { StrictMode } from 'react';
+import { StrictMode, Suspense } from 'react';
 import * as ReactDOMClient from 'react-dom/client';
-import './index.css';
-import Router from './router';
+import { RouterProvider } from 'react-router-dom';
+import '~/index.css';
+import { router } from '~/router';
 
 const container = document.querySelector('#root') as HTMLElement;
 const root = ReactDOMClient.createRoot(container);
 
 root.render(
 	<StrictMode>
-		<Router />
+		<Suspense fallback={<div>loading</div>}>
+			<RouterProvider router={router} />
+		</Suspense>
 	</StrictMode>,
 );
