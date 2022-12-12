@@ -28,7 +28,7 @@ const space = {
 	md: '1.125rem',
 	lg: '1.82rem',
 	xl: '2.945rem',
-} as const;
+};
 
 createGlobalTheme(':root', vars, {
 	space,

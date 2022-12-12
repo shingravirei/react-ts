@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const Navbar = (): JSX.Element => (
+const Navbar = () => (
 	<nav>
 		<ul>
 			<li>
