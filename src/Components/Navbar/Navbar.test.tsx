@@ -10,6 +10,6 @@ test('Navbar', () => {
 		</MemoryRouter>,
 	);
 
-	expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument();
-	expect(screen.getByRole('link', { name: /about/i })).toBeInTheDocument();
+	expect(screen.getByRole('link', { name: /home/i })).toBeDefined();
+	expect(screen.getByRole('link', { name: /about/i })).toBeDefined();
 });
