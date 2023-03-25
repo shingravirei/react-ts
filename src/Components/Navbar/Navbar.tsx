@@ -7,17 +7,12 @@ export type NavbarLinkProps = {
 };
 
 const NavbarLink = ({ to, children }: NavbarLinkProps) => (
-	<NavLink
-		to={to}
-		className={({ isActive }) => (isActive ? 'text-green-300' : '')}
-	>
-		{children}
-	</NavLink>
+	<NavLink to={to}>{children}</NavLink>
 );
 
 const Navbar = () => (
 	<nav>
-		<ul className='flex justify-center gap-4 text-lg py-2'>
+		<ul>
 			<li>
 				<NavbarLink to='/'>Home</NavbarLink>
 			</li>

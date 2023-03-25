@@ -1,7 +1,7 @@
 import { MemoryRouter } from 'react-router';
 import { expect, test } from 'vitest';
-import { render, screen } from '../../test/utils';
-import Navbar from './Navbar';
+import Navbar from '~/Components/Navbar';
+import { render, screen } from '~/test/utils';
 
 test('Navbar', () => {
 	render(
