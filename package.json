@@ -17,32 +17,32 @@
 	"dependencies": {
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"react-router": "6.9.0",
-		"react-router-dom": "6.9.0"
+		"react-router": "6.10.0",
+		"react-router-dom": "6.10.0"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "17.5.0",
+		"@commitlint/cli": "17.5.1",
 		"@commitlint/config-conventional": "17.4.4",
 		"@testing-library/react": "14.0.0",
-		"@types/react": "18.0.29",
+		"@types/react": "18.0.31",
 		"@types/react-dom": "18.0.11",
-		"@typescript-eslint/eslint-plugin": "^5.56.0",
-		"@typescript-eslint/parser": "^5.56.0",
-		"@vitejs/plugin-react-swc": "^3.2.0",
+		"@typescript-eslint/eslint-plugin": "5.57.0",
+		"@typescript-eslint/parser": "5.57.0",
+		"@vitejs/plugin-react-swc": "3.2.0",
 		"c8": "7.13.0",
-		"eslint": "^8.36.0",
-		"eslint-config-prettier": "^8.8.0",
-		"eslint-plugin-prettier": "^4.2.1",
-		"eslint-plugin-react": "^7.32.2",
-		"eslint-plugin-react-hooks": "^4.6.0",
-		"eslint-plugin-unicorn": "^46.0.0",
+		"eslint": "8.37.0",
+		"eslint-config-prettier": "8.8.0",
+		"eslint-plugin-prettier": "4.2.1",
+		"eslint-plugin-react": "7.32.2",
+		"eslint-plugin-react-hooks": "4.6.0",
+		"eslint-plugin-unicorn": "46.0.0",
 		"husky": "8.0.3",
 		"jsdom": "21.1.1",
 		"lint-staged": "13.2.0",
-		"sass": "^1.60.0",
-		"typescript": "5.0.2",
+		"sass": "1.60.0",
+		"typescript": "5.0.3",
 		"vite": "4.2.1",
-		"vitest": "0.29.7"
+		"vitest": "0.29.8"
 	},
 	"commitlint": {
 		"extends": [
