@@ -5,7 +5,7 @@ module.exports = {
 		browser: true,
 	},
 	parser: '@typescript-eslint/parser',
-	plugins: ['@typescript-eslint', 'prettier'],
+	plugins: ['@typescript-eslint', 'prettier', 'jsx-a11y'],
 	extends: [
 		'eslint:recommended',
 		'plugin:react/recommended',
@@ -14,6 +14,7 @@ module.exports = {
 		'plugin:react-hooks/recommended',
 		'plugin:unicorn/recommended',
 		'prettier',
+		'plugin:jsx-a11y/recommended',
 	],
 	settings: {
 		react: {
