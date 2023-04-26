@@ -7,8 +7,8 @@
 		],
 		"types": [
 			"vite/client",
-			"jest",
-			"@testing-library/jest-dom"
+			"vitest/globals",
+			"@types/testing-library__jest-dom"
 		],
 		"allowJs": false,
 		"skipLibCheck": false,
