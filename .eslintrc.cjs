@@ -1,3 +1,4 @@
+/** @type { import("@types/eslint").Linter.BaseConfig } */
 module.exports = {
 	root: true,
 	env: {
@@ -5,26 +6,31 @@ module.exports = {
 		browser: true,
 	},
 	parser: '@typescript-eslint/parser',
-	plugins: ['@typescript-eslint', 'prettier', 'jsx-a11y'],
+	plugins: ['@typescript-eslint', 'jsx-a11y'],
 	extends: [
 		'eslint:recommended',
 		'plugin:react/recommended',
 		'plugin:react/jsx-runtime',
 		'plugin:@typescript-eslint/recommended',
+		'plugin:@typescript-eslint/recommended-requiring-type-checking',
+		'plugin:@typescript-eslint/strict',
 		'plugin:react-hooks/recommended',
 		'plugin:unicorn/recommended',
-		'prettier',
 		'plugin:jsx-a11y/recommended',
+		'prettier',
 	],
-	settings: {
-		react: {
-			pragma: 'React',
-			version: 'detect',
-		},
-	},
 	parserOptions: {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
+		ecmaFeatures: {
+			jsx: true,
+		},
+		project: './tsconfig.json',
+	},
+	settings: {
+		react: {
+			version: 'detect',
+		},
 	},
 	overrides: [
 		{
@@ -35,6 +41,7 @@ module.exports = {
 		},
 	],
 	rules: {
+		'@typescript-eslint/no-non-null-assertion': 'off',
 		'unicorn/prevent-abbreviations': [
 			'error',
 			{
@@ -55,5 +62,13 @@ module.exports = {
 			},
 		],
 	},
-	ignorePatterns: ['*.cjs', '*.html', '*.config.js'],
+	ignorePatterns: [
+		'*.cjs',
+		'*.html',
+		'*.config.js',
+		'dist/',
+		'coverage/',
+		'vite.config.ts',
+		'panda.config.ts',
+	],
 };

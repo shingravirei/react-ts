@@ -3,19 +3,20 @@
 		"target": "ESNext",
 		"lib": [
 			"ESNext",
-			"DOM"
+			"DOM",
+			"dom.iterable"
 		],
 		"types": [
 			"vite/client",
 		],
 		"allowJs": false,
-		"skipLibCheck": false,
+		"skipLibCheck": true,
 		"esModuleInterop": false,
 		"allowSyntheticDefaultImports": true,
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
 		"module": "ESNext",
-		"moduleResolution": "Node",
+		"moduleResolution": "Bundler",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": true,
@@ -24,11 +25,11 @@
 		"paths": {
 			"~/*": [
 				"./src/*"
-			]
+			],
 		}
 	},
 	"include": [
 		"./src",
-		"src/vite-env.d.ts"
+		"src/vite-env.d.ts",
 	]
 }

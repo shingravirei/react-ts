@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 
-export type NavbarLinkProps = {
+export interface NavbarLinkProps {
 	to: string;
 	children: ReactNode;
-};
+}
 
 const NavbarLink = ({ to, children }: NavbarLinkProps) => (
 	<NavLink to={to}>{children}</NavLink>

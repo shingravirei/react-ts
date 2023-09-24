@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from '~/router';
 import '~/styles/styles.scss';
 
-const container = document.querySelector('#root') as HTMLElement;
+const container = document.querySelector('#root')!;
 const root = ReactDOMClient.createRoot(container);
 
 root.render(
