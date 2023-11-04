@@ -4,7 +4,6 @@ import Root from '~/Components/Root';
 
 const Home = lazy(() => import('~/pages/Home'));
 const About = lazy(() => import('~/pages/About'));
-const Todos = lazy(() => import('~/pages/Todos'));
 const ErrorPage = lazy(() => import('~/pages/ErrorPage'));
 
 export const router = createBrowserRouter([
@@ -18,14 +17,6 @@ export const router = createBrowserRouter([
 				element: (
 					<Suspense>
 						<Home />
-					</Suspense>
-				),
-			},
-			{
-				path: '/todos',
-				element: (
-					<Suspense>
-						<Todos />
 					</Suspense>
 				),
 			},

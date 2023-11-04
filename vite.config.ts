@@ -1,4 +1,3 @@
-import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import react from '@vitejs/plugin-react-swc';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -10,7 +9,6 @@ export default defineConfig({
 		react({
 			devTarget: 'esnext',
 		}),
-		vanillaExtractPlugin(),
 	],
 	resolve: {
 		alias: {

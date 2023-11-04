@@ -1,7 +1,5 @@
-import { Heading } from '~/Components/Typography/Heading';
-
 const About = () => {
-	return <Heading>About</Heading>;
+	return <h1>About</h1>;
 };
 
 export default About;
