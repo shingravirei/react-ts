@@ -18,7 +18,7 @@ export const Navbar = () => (
 				</li>
 
 				<li>
-					<NavbarLink to='/about'>[A]bout</NavbarLink>
+					<NavbarLink to='/about'>About</NavbarLink>
 				</li>
 			</ul>
 		</nav>
