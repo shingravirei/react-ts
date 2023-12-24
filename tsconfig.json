@@ -1,35 +1,14 @@
 {
-	"compilerOptions": {
-		"target": "ESNext",
-		"lib": [
-			"ESNext",
-			"DOM",
-			"dom.iterable"
-		],
-		"types": [
-			"vite/client",
-		],
-		"allowJs": false,
-		"skipLibCheck": true,
-		"esModuleInterop": false,
-		"allowSyntheticDefaultImports": true,
-		"strict": true,
-		"forceConsistentCasingInFileNames": true,
-		"module": "ESNext",
-		"moduleResolution": "Bundler",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"noEmit": true,
-		"jsx": "react-jsx",
-		"baseUrl": ".",
-		"paths": {
-			"~/*": [
-				"./src/*"
-			],
-		}
-	},
-	"include": [
-		"./src",
-		"src/vite-env.d.ts",
-	]
+    "files": [],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        },
+        {
+            "path": "./tsconfig.vitest.json"
+        },
+        {
+            "path": "./tsconfig.app.json"
+        },
+    ]
 }
