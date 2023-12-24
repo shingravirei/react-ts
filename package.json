@@ -16,29 +16,34 @@
 	"dependencies": {
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"react-router": "6.21.0",
-		"react-router-dom": "6.21.0"
+		"react-router": "6.21.1",
+		"react-router-dom": "6.21.1"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "18.4.3",
 		"@commitlint/config-conventional": "18.4.3",
-		"@testing-library/react": "14.1.2",
-		"@types/eslint": "8.44.9",
+		"@testing-library/jest-dom": "^6.1.5",
+		"@testing-library/react": "^14.1.2",
+		"@tsconfig/node20": "^20.1.2",
+		"@types/eslint": "8.56.0",
+		"@types/jsdom": "^21.1.6",
 		"@types/react": "18.2.45",
 		"@types/react-dom": "18.2.18",
-		"@typescript-eslint/eslint-plugin": "6.14.0",
-		"@typescript-eslint/parser": "6.14.0",
+		"@typescript-eslint/eslint-plugin": "6.15.0",
+		"@typescript-eslint/parser": "6.15.0",
 		"@vitejs/plugin-react-swc": "3.5.0",
 		"eslint": "8.56.0",
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-jsx-a11y": "6.8.0",
 		"eslint-plugin-react": "7.33.2",
 		"eslint-plugin-react-hooks": "4.6.0",
-		"eslint-plugin-unicorn": "49.0.0",
+		"eslint-plugin-unicorn": "50.0.1",
 		"husky": "8.0.3",
+		"jsdom": "^23.0.1",
 		"lint-staged": "15.2.0",
 		"typescript": "5.3.3",
-		"vite": "5.0.10"
+		"vite": "5.0.10",
+		"vitest": "^1.1.0"
 	},
 	"commitlint": {
 		"extends": [

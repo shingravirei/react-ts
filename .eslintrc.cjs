@@ -25,7 +25,7 @@ module.exports = {
 		ecmaFeatures: {
 			jsx: true,
 		},
-		project: './tsconfig.json',
+		project: ['./tsconfig.app.json', './tsconfig.vitest.json'],
 	},
 	settings: {
 		react: {
@@ -69,6 +69,6 @@ module.exports = {
 		'dist/',
 		'coverage/',
 		'vite.config.ts',
-		'panda.config.ts',
+		'vitest.config.ts',
 	],
 };
