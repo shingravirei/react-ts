@@ -1,7 +1,7 @@
 export const Home = () => {
 	return (
 		<div>
-			<h1>React TS</h1>
+			<h1>React TS - Rebased</h1>
 		</div>
 	);
 };
