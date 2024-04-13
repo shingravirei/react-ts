@@ -6,19 +6,20 @@ import hooksPlugin from 'eslint-plugin-react-hooks';
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import eslintConfigPrettier from 'eslint-config-prettier';
 
+// FIXME: eslint-plugin-react and eslint-plugin-react-hooks should add support to eslint 9
 export default tseslint.config(
 	eslint.configs.recommended,
 	...tseslint.configs.recommendedTypeChecked,
 	...tseslint.configs.stylisticTypeChecked,
 	...tseslint.configs.strictTypeChecked,
-	// reactRecommended, # FIXME: disabled till eslint-plugin-react updates to add support to eslint 9
-	// reactJsxRuntime, # FIXME: disabled till eslint-plugin-react updates to add support to eslint 9
-	{
-		plugins: {
-			'react-hooks': hooksPlugin,
-		},
-		rules: hooksPlugin.configs.recommended.rules,
-	},
+	// reactRecommended,
+	// reactJsxRuntime,
+	// {
+	// 	plugins: {
+	// 		'react-hooks': hooksPlugin,
+	// 	},
+	// 	rules: hooksPlugin.configs.recommended.rules,
+	// },
 	{
 		plugins: {
 			'jsx-a11y': jsxA11yPlugin,
