@@ -4,9 +4,7 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from '~/router';
 
 const container = document.querySelector('#root');
-
 if (!container) throw new Error('root does not exists');
-
 const root = ReactDOMClient.createRoot(container);
 
 root.render(
