@@ -1,23 +1,11 @@
 {
-	"include": [
-		"src/**/*",
-		"src/vite-env.d.ts",
-		"./setup-vitest.ts"
-	],
-	"exclude": [
-		"src/**/__tests__/*"
-	],
+	"include": ["src/**/*", "src/vite-env.d.ts", "./setup-vitest.ts"],
+	"exclude": ["src/**/__tests__/*"],
 	"compilerOptions": {
 		"composite": true,
 		"target": "ESNext",
-		"lib": [
-			"ESNext",
-			"DOM",
-			"dom.iterable"
-		],
-		"types": [
-			"vite/client",
-		],
+		"lib": ["ESNext", "DOM", "dom.iterable"],
+		"types": ["vite/client"],
 		"allowJs": false,
 		"skipLibCheck": true,
 		"esModuleInterop": false,
@@ -32,9 +20,7 @@
 		"jsx": "react-jsx",
 		"baseUrl": ".",
 		"paths": {
-			"~/*": [
-				"./src/*"
-			],
+			"~/*": ["./src/*"]
 		}
-	},
+	}
 }

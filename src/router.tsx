@@ -2,9 +2,17 @@ import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Root from '~/Components/Root';
 
-const Home = lazy(() => import('~/pages/Home'));
-const About = lazy(() => import('~/pages/About'));
-const ErrorPage = lazy(() => import('~/pages/ErrorPage'));
+const Home = lazy(() =>
+	import('~/pages/Home').then((module) => ({ default: module.Home })),
+);
+const About = lazy(() =>
+	import('~/pages/About').then((module) => ({ default: module.About })),
+);
+const ErrorPage = lazy(() =>
+	import('~/pages/ErrorPage').then((module) => ({
+		default: module.ErrorPage,
+	})),
+);
 
 export const router = createBrowserRouter([
 	{

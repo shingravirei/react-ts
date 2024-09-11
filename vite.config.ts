@@ -1,9 +1,10 @@
 import react from '@vitejs/plugin-react-swc';
+import browserslist from 'browserslist';
+import { browserslistToTargets } from 'lightningcss';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 
-// https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
 		react({
@@ -17,5 +18,14 @@ export default defineConfig({
 				'src',
 			),
 		},
+	},
+	css: {
+		transformer: 'lightningcss',
+		lightningcss: {
+			targets: browserslistToTargets(browserslist('>= 0.25%')),
+		},
+	},
+	build: {
+		cssMinify: 'lightningcss',
 	},
 });

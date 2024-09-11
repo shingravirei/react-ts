@@ -1,32 +1,18 @@
 import eslint from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
-import hooksPlugin from 'eslint-plugin-react-hooks';
-import reactJsxRuntime from 'eslint-plugin-react/configs/jsx-runtime.js';
-import reactRecommended from 'eslint-plugin-react/configs/recommended.js';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+import reactPlugin from 'eslint-plugin-react';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import tseslint from 'typescript-eslint';
 
-// TODO: eslint-plugin-react-hooks and eslint-plugin-react still don't support eslint 9 D:
 export default tseslint.config(
 	eslint.configs.recommended,
 	...tseslint.configs.recommendedTypeChecked,
 	...tseslint.configs.stylisticTypeChecked,
-	reactRecommended,
-	reactJsxRuntime,
+	reactPlugin.configs.flat.recommended,
+	reactPlugin.configs.flat['jsx-runtime'],
 	eslintPluginUnicorn.configs['flat/recommended'],
-	{
-		plugins: {
-			'react-hooks': hooksPlugin,
-		},
-		rules: hooksPlugin.configs.recommended.rules,
-	},
-	{
-		plugins: {
-			'jsx-a11y': jsxA11yPlugin,
-		},
-		rules: jsxA11yPlugin.configs.recommended.rules,
-	},
+	jsxA11y.flatConfigs.recommended,
 	{
 		languageOptions: {
 			parserOptions: {
