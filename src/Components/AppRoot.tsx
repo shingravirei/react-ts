@@ -1,7 +1,8 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router';
 import { Navbar } from '~/Components/Navbar/Navbar';
+import '~/index.css';
 
-const Root = () => {
+const AppRoot = () => {
 	return (
 		<>
 			<Navbar />
@@ -10,4 +11,4 @@ const Root = () => {
 	);
 };
 
-export default Root;
+export default AppRoot;

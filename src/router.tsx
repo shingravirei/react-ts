@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import Root from '~/Components/Root';
+import AppRoot from '~/Components/AppRoot';
 
 const Home = lazy(() =>
 	import('~/pages/Home').then((module) => ({ default: module.Home })),
@@ -17,7 +17,7 @@ const ErrorPage = lazy(() =>
 export const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Root />,
+		element: <AppRoot />,
 		errorElement: <ErrorPage />,
 		children: [
 			{
