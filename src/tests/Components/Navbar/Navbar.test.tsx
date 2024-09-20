@@ -1,25 +1,17 @@
-import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router';
+import { screen } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
 import { Navbar } from '~/Components/Navbar/Navbar';
+import { render } from '~/tests/utils';
 
 describe('Navbar', () => {
 	test('Home renders', () => {
-		render(
-			<MemoryRouter>
-				<Navbar />
-			</MemoryRouter>,
-		);
+		render(<Navbar />);
 
 		expect(screen.getByText('Home')).toBeInTheDocument();
 	});
 
 	test('About renders', () => {
-		render(
-			<MemoryRouter>
-				<Navbar />
-			</MemoryRouter>,
-		);
+		render(<Navbar />);
 
 		expect(screen.getByText('About')).toBeInTheDocument();
 	});

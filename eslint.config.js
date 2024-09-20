@@ -39,7 +39,18 @@ export default tseslint.config(
 		},
 	},
 	{
-		ignores: ['eslint.config.js'],
+		rules: {
+			'@typescript-eslint/no-misused-promises': 'off',
+			'@typescript-eslint/no-unused-vars': [
+				'error',
+				{
+					argsIgnorePattern: '^_',
+				},
+			],
+		},
+	},
+	{
+		ignores: ['eslint.config.js', 'src/routeTree.gen.ts'],
 	},
 	eslintConfigPrettier,
 );

@@ -1,24 +1,17 @@
-import { PropsWithChildren } from 'react';
-import { NavLink } from 'react-router-dom';
-
-export interface AppLink extends PropsWithChildren {
-	to: string;
-}
-
-const AppLink = ({ to, children }: AppLink) => (
-	<NavLink to={to}>{children}</NavLink>
-);
+import { Link } from '@tanstack/react-router';
 
 export const Navbar = () => (
 	<header>
 		<nav>
 			<ul>
 				<li>
-					<AppLink to='/'>Home</AppLink>
+					<Link to='/'>Home</Link>
 				</li>
-
 				<li>
-					<AppLink to='/about'>About</AppLink>
+					<Link to='/about'>About</Link>
+				</li>
+				<li>
+					<Link to='/private'>Private</Link>
 				</li>
 			</ul>
 		</nav>
