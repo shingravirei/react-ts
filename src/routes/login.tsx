@@ -34,7 +34,7 @@ function Login() {
 
 	useEffect(() => {
 		usernameInputRef.current?.focus();
-	}, [usernameInputRef]);
+	}, []);
 
 	return (
 		<>
