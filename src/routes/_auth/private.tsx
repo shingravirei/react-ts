@@ -1,18 +1,27 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { logout, useAuthStore } from '~/store/auth';
+import { useAuthActions, useUser } from '~/features/auth/store/auth';
 
 export const Route = createFileRoute('/_auth/private')({
 	component: () => <Private />,
 });
 
 function Private() {
-	const user = useAuthStore((state) => state.user);
+	const user = useUser();
+	const { logout } = useAuthActions();
+	const navigate = Route.useNavigate();
 
 	return (
 		<div>
-			<div>{user}</div>
+			<div>hello, {user}</div>
 
-			<button onClick={async () => await logout()}>logout</button>
+			<button
+				onClick={async () => {
+					await logout();
+					await navigate({ to: '/' });
+				}}
+			>
+				logout
+			</button>
 		</div>
 	);
 }

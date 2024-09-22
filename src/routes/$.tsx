@@ -6,7 +6,7 @@ export const Route = createFileRoute('/$')({
 
 		return (
 			<div>
-				Hello <code>{params._splat}</code>!
+				Not Found! <code>{params._splat}</code>!
 			</div>
 		);
 	},

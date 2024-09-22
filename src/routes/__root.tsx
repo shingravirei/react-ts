@@ -12,6 +12,16 @@ const TanStackRouterDevtools =
 				})),
 			);
 
+const TanStackQueryDevtools =
+	process.env.NODE_ENV === 'production'
+		? // eslint-disable-next-line unicorn/no-null
+			() => null
+		: lazy(() =>
+				import('@tanstack/react-query-devtools').then((module) => ({
+					default: module.ReactQueryDevtools,
+				})),
+			);
+
 export const Route = createRootRoute({
 	component: RootRoute,
 });
@@ -21,7 +31,8 @@ function RootRoute() {
 		<>
 			<Navbar />
 			<Outlet />
-			<TanStackRouterDevtools />
+			<TanStackRouterDevtools initialIsOpen={false} />
+			<TanStackQueryDevtools initialIsOpen={false} position='right' />
 		</>
 	);
 }

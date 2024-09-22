@@ -11,13 +11,20 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root';
+import { Route as LoginImport } from './routes/login';
 import { Route as AboutImport } from './routes/about';
 import { Route as AuthImport } from './routes/_auth';
 import { Route as SplatImport } from './routes/$';
 import { Route as IndexImport } from './routes/index';
+import { Route as TodosIndexImport } from './routes/todos/index';
 import { Route as AuthPrivateImport } from './routes/_auth/private';
 
 // Create/Update Routes
+
+const LoginRoute = LoginImport.update({
+	path: '/login',
+	getParentRoute: () => rootRoute,
+} as any);
 
 const AboutRoute = AboutImport.update({
 	path: '/about',
@@ -36,6 +43,11 @@ const SplatRoute = SplatImport.update({
 
 const IndexRoute = IndexImport.update({
 	path: '/',
+	getParentRoute: () => rootRoute,
+} as any);
+
+const TodosIndexRoute = TodosIndexImport.update({
+	path: '/todos/',
 	getParentRoute: () => rootRoute,
 } as any);
 
@@ -76,12 +88,26 @@ declare module '@tanstack/react-router' {
 			preLoaderRoute: typeof AboutImport;
 			parentRoute: typeof rootRoute;
 		};
+		'/login': {
+			id: '/login';
+			path: '/login';
+			fullPath: '/login';
+			preLoaderRoute: typeof LoginImport;
+			parentRoute: typeof rootRoute;
+		};
 		'/_auth/private': {
 			id: '/_auth/private';
 			path: '/private';
 			fullPath: '/private';
 			preLoaderRoute: typeof AuthPrivateImport;
 			parentRoute: typeof AuthImport;
+		};
+		'/todos/': {
+			id: '/todos/';
+			path: '/todos';
+			fullPath: '/todos';
+			preLoaderRoute: typeof TodosIndexImport;
+			parentRoute: typeof rootRoute;
 		};
 	}
 }
@@ -103,7 +129,9 @@ export interface FileRoutesByFullPath {
 	'/$': typeof SplatRoute;
 	'': typeof AuthRouteWithChildren;
 	'/about': typeof AboutRoute;
+	'/login': typeof LoginRoute;
 	'/private': typeof AuthPrivateRoute;
+	'/todos': typeof TodosIndexRoute;
 }
 
 export interface FileRoutesByTo {
@@ -111,7 +139,9 @@ export interface FileRoutesByTo {
 	'/$': typeof SplatRoute;
 	'': typeof AuthRouteWithChildren;
 	'/about': typeof AboutRoute;
+	'/login': typeof LoginRoute;
 	'/private': typeof AuthPrivateRoute;
+	'/todos': typeof TodosIndexRoute;
 }
 
 export interface FileRoutesById {
@@ -120,15 +150,25 @@ export interface FileRoutesById {
 	'/$': typeof SplatRoute;
 	'/_auth': typeof AuthRouteWithChildren;
 	'/about': typeof AboutRoute;
+	'/login': typeof LoginRoute;
 	'/_auth/private': typeof AuthPrivateRoute;
+	'/todos/': typeof TodosIndexRoute;
 }
 
 export interface FileRouteTypes {
 	fileRoutesByFullPath: FileRoutesByFullPath;
-	fullPaths: '/' | '/$' | '' | '/about' | '/private';
+	fullPaths: '/' | '/$' | '' | '/about' | '/login' | '/private' | '/todos';
 	fileRoutesByTo: FileRoutesByTo;
-	to: '/' | '/$' | '' | '/about' | '/private';
-	id: '__root__' | '/' | '/$' | '/_auth' | '/about' | '/_auth/private';
+	to: '/' | '/$' | '' | '/about' | '/login' | '/private' | '/todos';
+	id:
+		| '__root__'
+		| '/'
+		| '/$'
+		| '/_auth'
+		| '/about'
+		| '/login'
+		| '/_auth/private'
+		| '/todos/';
 	fileRoutesById: FileRoutesById;
 }
 
@@ -137,6 +177,8 @@ export interface RootRouteChildren {
 	SplatRoute: typeof SplatRoute;
 	AuthRoute: typeof AuthRouteWithChildren;
 	AboutRoute: typeof AboutRoute;
+	LoginRoute: typeof LoginRoute;
+	TodosIndexRoute: typeof TodosIndexRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -144,6 +186,8 @@ const rootRouteChildren: RootRouteChildren = {
 	SplatRoute: SplatRoute,
 	AuthRoute: AuthRouteWithChildren,
 	AboutRoute: AboutRoute,
+	LoginRoute: LoginRoute,
+	TodosIndexRoute: TodosIndexRoute,
 };
 
 export const routeTree = rootRoute
@@ -161,7 +205,9 @@ export const routeTree = rootRoute
         "/",
         "/$",
         "/_auth",
-        "/about"
+        "/about",
+        "/login",
+        "/todos/"
       ]
     },
     "/": {
@@ -179,9 +225,15 @@ export const routeTree = rootRoute
     "/about": {
       "filePath": "about.tsx"
     },
+    "/login": {
+      "filePath": "login.tsx"
+    },
     "/_auth/private": {
       "filePath": "_auth/private.tsx",
       "parent": "/_auth"
+    },
+    "/todos/": {
+      "filePath": "todos/index.tsx"
     }
   }
 }
