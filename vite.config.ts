@@ -1,4 +1,5 @@
-import react from '@vitejs/plugin-react-swc';
+import { TanStackRouterVite } from '@tanstack/router-plugin/vite';
+import react from '@vitejs/plugin-react';
 import browserslist from 'browserslist';
 import { browserslistToTargets } from 'lightningcss';
 import path from 'node:path';
@@ -6,11 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-	plugins: [
-		react({
-			devTarget: 'esnext',
-		}),
-	],
+	plugins: [TanStackRouterVite(), react({})],
 	resolve: {
 		alias: {
 			'~': path.resolve(

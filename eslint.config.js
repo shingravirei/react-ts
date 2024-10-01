@@ -2,6 +2,7 @@ import eslint from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactPlugin from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import tseslint from 'typescript-eslint';
 
@@ -39,7 +40,26 @@ export default tseslint.config(
 		},
 	},
 	{
-		ignores: ['eslint.config.js'],
+		rules: {
+			'@typescript-eslint/no-misused-promises': 'off',
+			'@typescript-eslint/no-unused-vars': [
+				'error',
+				{
+					argsIgnorePattern: '^_',
+				},
+			],
+		},
+	},
+	{
+		plugins: {
+			'react-hooks': reactHooks,
+		},
+		rules: {
+			...reactHooks.configs.recommended.rules,
+		},
+	},
+	{
+		ignores: ['eslint.config.js', 'src/routeTree.gen.ts'],
 	},
 	eslintConfigPrettier,
 );

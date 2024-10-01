@@ -1,26 +1,34 @@
-import { PropsWithChildren } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from '@tanstack/react-router';
+import { useAuthStore } from '~/features/auth/store/auth';
 
-export interface AppLink extends PropsWithChildren {
-	to: string;
-}
+export const Navbar = () => {
+	const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
-const AppLink = ({ to, children }: AppLink) => (
-	<NavLink to={to}>{children}</NavLink>
-);
-
-export const Navbar = () => (
-	<header>
-		<nav>
-			<ul>
-				<li>
-					<AppLink to='/'>Home</AppLink>
-				</li>
-
-				<li>
-					<AppLink to='/about'>About</AppLink>
-				</li>
-			</ul>
-		</nav>
-	</header>
-);
+	return (
+		<header>
+			<nav>
+				<ul>
+					<li>
+						<Link to='/'>Home</Link>
+					</li>
+					<li>
+						<Link to='/about'>About</Link>
+					</li>
+					<li>
+						<Link to='/todos'>Todos</Link>
+					</li>
+					{isAuthenticated && (
+						<li>
+							<Link to='/private'>Private</Link>
+						</li>
+					)}
+					{!isAuthenticated && (
+						<li>
+							<Link to='/login'>Login</Link>
+						</li>
+					)}
+				</ul>
+			</nav>
+		</header>
+	);
+};
