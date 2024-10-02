@@ -1,5 +1,6 @@
 import { createRootRoute, Outlet } from '@tanstack/react-router';
 import { lazy } from 'react';
+import { Toaster } from 'sonner';
 import { Navbar } from '~/Components/Navbar/Navbar';
 
 const TanStackRouterDevtools =
@@ -33,6 +34,7 @@ function RootRoute() {
 			<Outlet />
 			<TanStackRouterDevtools initialIsOpen={false} />
 			<TanStackQueryDevtools initialIsOpen={false} position='right' />
+			<Toaster duration={5000} richColors closeButton />
 		</>
 	);
 }

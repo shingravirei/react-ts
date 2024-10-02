@@ -1,3 +1,4 @@
+import { QueryClientProvider } from '@tanstack/react-query';
 import {
 	createMemoryHistory,
 	createRouter,
@@ -5,6 +6,7 @@ import {
 } from '@tanstack/react-router';
 import { render, RenderOptions } from '@testing-library/react';
 import { ReactElement, ReactNode } from 'react';
+import { queryClient } from '~/app/query-client';
 import { routeTree } from '~/routeTree.gen';
 
 const memoryHistory = createMemoryHistory({
@@ -13,11 +15,13 @@ const memoryHistory = createMemoryHistory({
 
 const router = createRouter({ routeTree, history: memoryHistory });
 
-const Providers = ({ children }: { children: ReactNode }) => {
+export const Providers = ({ children }: { children: ReactNode }) => {
 	return (
-		<RouterContextProvider router={router}>
-			{children}
-		</RouterContextProvider>
+		<QueryClientProvider client={queryClient}>
+			<RouterContextProvider router={router}>
+				{children}
+			</RouterContextProvider>
+		</QueryClientProvider>
 	);
 };
 

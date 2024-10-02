@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { todosQueryKeys } from '~/features/todos/api/query-keys';
 import { jsonplaceholderApi } from '~/lib/api-client';
 
 export interface Todo {
@@ -12,11 +13,11 @@ interface GetTodosParams {
 	signal?: AbortSignal;
 }
 
-export const getTodos = ({ signal }: GetTodosParams): Promise<Todo[]> =>
-	jsonplaceholderApi.get('todos', { signal }).json();
+export const getTodos = ({ signal }: GetTodosParams) =>
+	jsonplaceholderApi.get('todos', { signal }).json<Todo[]>();
 
 export const useGetTodos = () =>
 	useQuery({
-		queryKey: ['todos'],
+		queryKey: todosQueryKeys.getTodos,
 		queryFn: ({ signal }) => getTodos({ signal }),
 	});

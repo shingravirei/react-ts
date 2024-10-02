@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { createFileRoute } from '@tanstack/react-router';
-import { useEffect, useId, useRef } from 'react';
+import { useEffect, useId } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { useAuthActions } from '~/features/auth/store/auth';
@@ -16,12 +16,17 @@ const loginSchema = z.object({
 type LoginForm = z.infer<typeof loginSchema>;
 
 function Login() {
-	const { register, handleSubmit, reset } = useForm<LoginForm>({
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { errors },
+		setFocus,
+	} = useForm<LoginForm>({
 		resolver: zodResolver(loginSchema),
 	});
 	const navigate = Route.useNavigate();
 	const loginFormId = useId();
-	const usernameInputRef = useRef<HTMLInputElement>(null);
 	const { login } = useAuthActions();
 
 	const onSubmit: SubmitHandler<LoginForm> = async ({ username }) => {
@@ -33,8 +38,8 @@ function Login() {
 	};
 
 	useEffect(() => {
-		usernameInputRef.current?.focus();
-	}, []);
+		setFocus('username');
+	}, [setFocus]);
 
 	return (
 		<>
@@ -42,12 +47,8 @@ function Login() {
 
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<label htmlFor={loginFormId}>username: </label>
-				<input
-					type='text'
-					{...register('username')}
-					id={loginFormId}
-					ref={usernameInputRef}
-				/>
+				<input type='text' {...register('username')} id={loginFormId} />
+				{errors.username && <div>{errors.username.message}</div>}
 				<button type='submit'>submit</button>
 			</form>
 		</>

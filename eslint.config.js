@@ -1,4 +1,5 @@
 import eslint from '@eslint/js';
+import pluginQuery from '@tanstack/eslint-plugin-query';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactPlugin from 'eslint-plugin-react';
@@ -14,6 +15,7 @@ export default tseslint.config(
 	reactPlugin.configs.flat['jsx-runtime'],
 	eslintPluginUnicorn.configs['flat/recommended'],
 	jsxA11y.flatConfigs.recommended,
+	...pluginQuery.configs['flat/recommended'],
 	{
 		languageOptions: {
 			parserOptions: {

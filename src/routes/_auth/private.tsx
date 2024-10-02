@@ -17,7 +17,7 @@ function Private() {
 			<button
 				onClick={async () => {
 					await logout();
-					await navigate({ to: '/' });
+					await navigate({ to: '/login' });
 				}}
 			>
 				logout

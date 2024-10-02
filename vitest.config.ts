@@ -6,7 +6,18 @@ export default mergeConfig(
 	defineConfig({
 		test: {
 			environment: 'jsdom',
-			setupFiles: ['./setup-vitest'],
+			setupFiles: ['./src/tests/setup-vitest.ts'],
+			coverage: {
+				enabled: true,
+				include: ['src/**/features/**', 'src/**/lib/**'],
+				exclude: [
+					'**/Components/**',
+					'**/routes/**',
+					'**/__tests__/**',
+					'**/tests/**',
+				],
+				reporter: ['html', 'text'],
+			},
 		},
 	}),
 );
