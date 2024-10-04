@@ -1,4 +1,8 @@
-import { createRootRoute, Outlet } from '@tanstack/react-router';
+import {
+	createRootRoute,
+	ErrorComponentProps,
+	Outlet,
+} from '@tanstack/react-router';
 import { lazy } from 'react';
 import { Toaster } from 'sonner';
 import { Navbar } from '~/Components/Navbar/Navbar';
@@ -25,7 +29,17 @@ const TanStackQueryDevtools =
 
 export const Route = createRootRoute({
 	component: RootRoute,
+	errorComponent: ErrorComp,
 });
+
+function ErrorComp({ error, reset }: ErrorComponentProps) {
+	return (
+		<div>
+			<h1>Error, {error.message}</h1>
+			<button onClick={() => reset()}>reset</button>
+		</div>
+	);
+}
 
 function RootRoute() {
 	return (

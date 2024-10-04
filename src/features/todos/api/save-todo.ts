@@ -16,7 +16,7 @@ export const useSaveTodo = () =>
 		mutationFn: () => saveTodo(),
 		onSuccess: async () => {
 			await queryClient.invalidateQueries({
-				queryKey: ['todos'],
+				queryKey: todosQueryKeys.getTodos,
 			});
 		},
 	});
