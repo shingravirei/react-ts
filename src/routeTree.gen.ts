@@ -22,11 +22,13 @@ import { Route as AuthPrivateImport } from './routes/_auth/private';
 // Create/Update Routes
 
 const LoginRoute = LoginImport.update({
+	id: '/login',
 	path: '/login',
 	getParentRoute: () => rootRoute,
 } as any);
 
 const AboutRoute = AboutImport.update({
+	id: '/about',
 	path: '/about',
 	getParentRoute: () => rootRoute,
 } as any);
@@ -37,21 +39,25 @@ const AuthRoute = AuthImport.update({
 } as any);
 
 const SplatRoute = SplatImport.update({
+	id: '/$',
 	path: '/$',
 	getParentRoute: () => rootRoute,
 } as any);
 
 const IndexRoute = IndexImport.update({
+	id: '/',
 	path: '/',
 	getParentRoute: () => rootRoute,
 } as any);
 
 const TodosIndexRoute = TodosIndexImport.update({
+	id: '/todos/',
 	path: '/todos/',
 	getParentRoute: () => rootRoute,
 } as any);
 
 const AuthPrivateRoute = AuthPrivateImport.update({
+	id: '/private',
 	path: '/private',
 	getParentRoute: () => AuthRoute,
 } as any);
