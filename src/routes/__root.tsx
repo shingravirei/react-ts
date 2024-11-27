@@ -4,13 +4,15 @@ import {
 	Outlet,
 } from '@tanstack/react-router';
 import { lazy } from 'react';
+import { FaCheck } from 'react-icons/fa6';
 import { Toaster } from 'sonner';
 import { Navbar } from '~/Components/Navbar/Navbar';
+import '~/styles/theme.css';
+import { toastBase, toastDescription, toastSuccess } from '~/styles/toast.css';
 
 const TanStackRouterDevtools =
 	process.env.NODE_ENV === 'production'
-		? // eslint-disable-next-line unicorn/no-null
-			() => null
+		? () => null
 		: lazy(() =>
 				import('@tanstack/router-devtools').then((module) => ({
 					default: module.TanStackRouterDevtools,
@@ -19,8 +21,7 @@ const TanStackRouterDevtools =
 
 const TanStackQueryDevtools =
 	process.env.NODE_ENV === 'production'
-		? // eslint-disable-next-line unicorn/no-null
-			() => null
+		? () => null
 		: lazy(() =>
 				import('@tanstack/react-query-devtools').then((module) => ({
 					default: module.ReactQueryDevtools,
@@ -48,7 +49,18 @@ function RootRoute() {
 			<Outlet />
 			<TanStackRouterDevtools initialIsOpen={false} />
 			<TanStackQueryDevtools initialIsOpen={false} position='right' />
-			<Toaster duration={5000} richColors closeButton />
+			<Toaster
+				duration={3000}
+				icons={{ success: <FaCheck /> }}
+				toastOptions={{
+					unstyled: true,
+					className: toastBase,
+					descriptionClassName: toastDescription,
+					classNames: {
+						success: toastSuccess,
+					},
+				}}
+			/>
 		</>
 	);
 }

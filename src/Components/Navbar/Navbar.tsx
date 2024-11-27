@@ -1,30 +1,42 @@
 import { Link } from '@tanstack/react-router';
+import { ReactNode } from 'react';
+import { navContainer, navLink, navList } from '~/Components/Navbar/navbar.css';
 import { useAuthStore } from '~/features/auth/store/auth';
+
+interface NavLinkProps {
+	to: string;
+	children: ReactNode;
+}
+const NavLink = ({ to, children }: NavLinkProps) => (
+	<Link to={to} className={navLink} data-open='true'>
+		{children}
+	</Link>
+);
 
 export const Navbar = () => {
 	const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
 	return (
 		<header>
-			<nav>
-				<ul>
+			<nav className={navContainer}>
+				<ul className={navList}>
 					<li>
-						<Link to='/'>Home</Link>
+						<NavLink to='/'>Home</NavLink>
 					</li>
 					<li>
-						<Link to='/about'>About</Link>
+						<NavLink to='/about'>About</NavLink>
 					</li>
 					<li>
-						<Link to='/todos'>Todos</Link>
+						<NavLink to='/todos'>Todos</NavLink>
 					</li>
 					{isAuthenticated && (
 						<li>
-							<Link to='/private'>Private</Link>
+							<NavLink to='/private'>Private</NavLink>
 						</li>
 					)}
 					{!isAuthenticated && (
 						<li>
-							<Link to='/login'>Login</Link>
+							<NavLink to='/login'>Login</NavLink>
 						</li>
 					)}
 				</ul>

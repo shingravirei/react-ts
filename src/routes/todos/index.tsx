@@ -19,7 +19,9 @@ function Todos() {
 	const handleSaveTodo = async () => {
 		try {
 			await saveTodoMutation.mutateAsync();
-			toast.success('Saved new todo with success!');
+			toast.success('Saved new todo with success!', {
+				description: 'some big description here',
+			});
 		} catch (error) {
 			if (error instanceof HTTPError) {
 				toast.error(error.message);

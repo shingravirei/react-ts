@@ -3,6 +3,7 @@ import pluginQuery from '@tanstack/eslint-plugin-query';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactPlugin from 'eslint-plugin-react';
+import reactPluginCompiler from 'eslint-plugin-react-compiler';
 import reactHooks from 'eslint-plugin-react-hooks';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import tseslint from 'typescript-eslint';
@@ -16,6 +17,11 @@ export default tseslint.config(
 	eslintPluginUnicorn.configs['flat/recommended'],
 	jsxA11y.flatConfigs.recommended,
 	...pluginQuery.configs['flat/recommended'],
+	{
+		plugins: {
+			'react-compiler': reactPluginCompiler,
+		},
+	},
 	{
 		languageOptions: {
 			parserOptions: {
@@ -39,10 +45,14 @@ export default tseslint.config(
 		rules: {
 			'unicorn/prevent-abbreviations': 'off',
 			'unicorn/filename-case': 'off',
+			'unicorn/no-null': 'off',
 		},
 	},
 	{
 		rules: {
+			'@typescript-eslint/no-unsafe-call': 'off',
+			'@typescript-eslint/no-unsafe-assignment': 'off',
+			'@typescript-eslint/no-unsafe-member-access': 'off',
 			'@typescript-eslint/no-misused-promises': 'off',
 			'@typescript-eslint/no-unused-vars': [
 				'error',
