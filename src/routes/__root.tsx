@@ -4,11 +4,9 @@ import {
 	Outlet,
 } from '@tanstack/react-router';
 import { lazy } from 'react';
-import { FaCheck } from 'react-icons/fa6';
-import { Toaster } from 'sonner';
 import { Navbar } from '~/Components/Navbar/Navbar';
+import { Toaster } from '~/Components/Toaster';
 import '~/styles/theme.css';
-import { toastBase, toastDescription, toastSuccess } from '~/styles/toast.css';
 
 const TanStackRouterDevtools =
 	process.env.NODE_ENV === 'production'
@@ -49,18 +47,7 @@ function RootRoute() {
 			<Outlet />
 			<TanStackRouterDevtools initialIsOpen={false} />
 			<TanStackQueryDevtools initialIsOpen={false} position='right' />
-			<Toaster
-				duration={3000}
-				icons={{ success: <FaCheck /> }}
-				toastOptions={{
-					unstyled: true,
-					className: toastBase,
-					descriptionClassName: toastDescription,
-					classNames: {
-						success: toastSuccess,
-					},
-				}}
-			/>
+			<Toaster />
 		</>
 	);
 }

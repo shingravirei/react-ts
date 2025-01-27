@@ -1,17 +1,30 @@
-import { screen } from '@testing-library/react';
+import {
+	createMemoryHistory,
+	createRouter,
+	RouterProvider,
+} from '@tanstack/react-router';
+import { screen, waitFor } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
-import { Navbar } from '~/Components/Navbar/Navbar';
+import { routeTree } from '~/routeTree.gen';
 import { render } from '~/tests/utils';
 
-describe('Navbar', () => {
-	test('Home renders', () => {
-		render(<Navbar />);
+const memoryHistory = createMemoryHistory({
+	initialEntries: ['/'],
+});
 
-		expect(screen.getByText('Home')).toBeInTheDocument();
+const router = createRouter({ routeTree, history: memoryHistory });
+
+describe('Navbar', () => {
+	test.concurrent('Home renders', async () => {
+		render(<RouterProvider router={router} history={memoryHistory} />);
+
+		await waitFor(() => {
+			expect(screen.getByText('Home')).toBeInTheDocument();
+		});
 	});
 
-	test('About renders', () => {
-		render(<Navbar />);
+	test.concurrent('About renders', () => {
+		render(<RouterProvider router={router} history={memoryHistory} />);
 
 		expect(screen.getByText('About')).toBeInTheDocument();
 	});
