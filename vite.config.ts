@@ -3,26 +3,26 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import react from '@vitejs/plugin-react';
 import browserslist from 'browserslist';
 import { browserslistToTargets } from 'lightningcss';
+import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
 	plugins: [
 		TanStackRouterVite(),
+		tsconfigPaths(),
+		vanillaExtractPlugin(),
 		react({
 			babel: {
 				plugins: [
 					[
 						'babel-plugin-react-compiler',
 						{
-							target: '18',
+							target: '19',
 						},
 					],
 				],
 			},
 		}),
-		tsconfigPaths(),
-		vanillaExtractPlugin(),
 	],
 	css: {
 		transformer: 'lightningcss',
