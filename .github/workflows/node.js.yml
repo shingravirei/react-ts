@@ -18,7 +18,7 @@ jobs:
                   node-version: 22
                   cache: 'npm'
             - run: npm ci --force
-            - run: npx vitest run
+            - run: npx eslint src
 
     test:
         runs-on: ubuntu-latest
