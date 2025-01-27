@@ -1,15 +1,7 @@
 import { QueryClientProvider } from '@tanstack/react-query';
-import { createMemoryHistory, createRouter } from '@tanstack/react-router';
 import { render, RenderOptions } from '@testing-library/react';
 import { ReactElement, ReactNode } from 'react';
 import { queryClient } from '~/app/query-client';
-import { routeTree } from '~/routeTree.gen';
-
-const memoryHistory = createMemoryHistory({
-	initialEntries: ['/'],
-});
-
-const router = createRouter({ routeTree, history: memoryHistory });
 
 export const Providers = ({ children }: { children: ReactNode }) => {
 	return (
