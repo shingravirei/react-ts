@@ -1,6 +1,5 @@
 import { Link } from '@tanstack/react-router';
 import { ReactNode } from 'react';
-import { navContainer, navLink, navList } from '~/Components/Navbar/navbar.css';
 import { useAuthStore } from '~/features/auth/store/auth';
 
 interface NavLinkProps {
@@ -8,7 +7,7 @@ interface NavLinkProps {
 	children: ReactNode;
 }
 const NavLink = ({ to, children }: NavLinkProps) => (
-	<Link to={to} className={navLink} data-open='true'>
+	<Link to={to} data-open='true'>
 		{children}
 	</Link>
 );
@@ -18,14 +17,12 @@ export const Navbar = () => {
 
 	return (
 		<header>
-			<nav className={navContainer}>
-				<ul className={navList}>
+			<nav className='h-10 flex items-center justify-center'>
+				<ul className='flex justify-center gap-2'>
 					<li>
 						<NavLink to='/'>Home</NavLink>
 					</li>
-					<li>
-						<NavLink to='/about'>About</NavLink>
-					</li>
+
 					<li>
 						<NavLink to='/todos'>Todos</NavLink>
 					</li>
@@ -39,6 +36,9 @@ export const Navbar = () => {
 							<NavLink to='/login'>Login</NavLink>
 						</li>
 					)}
+					<li>
+						<NavLink to='/about'>About</NavLink>
+					</li>
 				</ul>
 			</nav>
 		</header>

@@ -1,5 +1,5 @@
+import tailwindcss from '@tailwindcss/vite';
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite';
-import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import react from '@vitejs/plugin-react';
 import browserslist from 'browserslist';
 import { browserslistToTargets } from 'lightningcss';
@@ -10,7 +10,7 @@ export default defineConfig({
 	plugins: [
 		TanStackRouterVite(),
 		tsconfigPaths(),
-		vanillaExtractPlugin(),
+		tailwindcss(),
 		react({
 			babel: {
 				plugins: [

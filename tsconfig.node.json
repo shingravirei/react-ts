@@ -4,7 +4,8 @@
 		"vite.config.*",
 		"vitest.config.*",
 		"eslint.config.*",
-		"prettier.config.*"
+		"prettier.config.*",
+		"prettier.configs.ts"
 	],
 	"compilerOptions": {
 		"composite": true,

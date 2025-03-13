@@ -1,11 +1,10 @@
 import { ComponentPropsWithoutRef } from 'react';
-import { button } from '~/Components/Button/button.css';
 
 type ButtonProps = ComponentPropsWithoutRef<'button'>;
 
 export const Button = ({ children, ...restProps }: ButtonProps) => {
 	return (
-		<button className={button} {...restProps}>
+		<button className='bg-amber-400 px-3 py-1 rounded-md' {...restProps}>
 			{children}
 		</button>
 	);

@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+
+@theme {
+	--color-bg: #1f1f28;
+	--color-fg: #dcd7ba;
+
+	--font-sans: Ubuntu, sans-serif;
+}

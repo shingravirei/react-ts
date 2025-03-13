@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import * as ReactDOMClient from 'react-dom/client';
 import { AppProvider } from '~/app/Provider';
-import '~/index.css';
+import '~/main.css';
 
 const container = document.querySelector('#root');
 

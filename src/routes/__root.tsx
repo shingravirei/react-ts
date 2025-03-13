@@ -4,15 +4,13 @@ import {
 	Outlet,
 } from '@tanstack/react-router';
 import { lazy } from 'react';
-import { Navbar } from '~/Components/Navbar/Navbar';
-import { Toaster } from '~/Components/Toaster';
-import '~/styles/theme.css';
+import { Navbar } from '~/components/Navbar/Navbar';
 
 const TanStackRouterDevtools =
 	process.env.NODE_ENV === 'production'
 		? () => null
 		: lazy(() =>
-				import('@tanstack/router-devtools').then((module) => ({
+				import('@tanstack/react-router-devtools').then((module) => ({
 					default: module.TanStackRouterDevtools,
 				})),
 			);
@@ -47,7 +45,6 @@ function RootRoute() {
 			<Outlet />
 			<TanStackRouterDevtools initialIsOpen={false} />
 			<TanStackQueryDevtools initialIsOpen={false} position='right' />
-			<Toaster />
 		</>
 	);
 }

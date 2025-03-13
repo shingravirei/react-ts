@@ -10,231 +10,195 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root';
-import { Route as LoginImport } from './routes/login';
-import { Route as AboutImport } from './routes/about';
-import { Route as AuthImport } from './routes/_auth';
-import { Route as SplatImport } from './routes/$';
-import { Route as IndexImport } from './routes/index';
-import { Route as TodosIndexImport } from './routes/todos/index';
-import { Route as ComponentsButtonImport } from './routes/components/button';
-import { Route as AuthPrivateImport } from './routes/_auth/private';
+import { Route as rootRoute } from './routes/__root'
+import { Route as LoginImport } from './routes/login'
+import { Route as AboutImport } from './routes/about'
+import { Route as AuthImport } from './routes/_auth'
+import { Route as SplatImport } from './routes/$'
+import { Route as IndexImport } from './routes/index'
+import { Route as TodosIndexImport } from './routes/todos/index'
+import { Route as AuthPrivateImport } from './routes/_auth/private'
 
 // Create/Update Routes
 
 const LoginRoute = LoginImport.update({
-	id: '/login',
-	path: '/login',
-	getParentRoute: () => rootRoute,
-} as any);
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const AboutRoute = AboutImport.update({
-	id: '/about',
-	path: '/about',
-	getParentRoute: () => rootRoute,
-} as any);
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const AuthRoute = AuthImport.update({
-	id: '/_auth',
-	getParentRoute: () => rootRoute,
-} as any);
+  id: '/_auth',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const SplatRoute = SplatImport.update({
-	id: '/$',
-	path: '/$',
-	getParentRoute: () => rootRoute,
-} as any);
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
-	id: '/',
-	path: '/',
-	getParentRoute: () => rootRoute,
-} as any);
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const TodosIndexRoute = TodosIndexImport.update({
-	id: '/todos/',
-	path: '/todos/',
-	getParentRoute: () => rootRoute,
-} as any);
-
-const ComponentsButtonRoute = ComponentsButtonImport.update({
-	id: '/components/button',
-	path: '/components/button',
-	getParentRoute: () => rootRoute,
-} as any);
+  id: '/todos/',
+  path: '/todos/',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const AuthPrivateRoute = AuthPrivateImport.update({
-	id: '/private',
-	path: '/private',
-	getParentRoute: () => AuthRoute,
-} as any);
+  id: '/private',
+  path: '/private',
+  getParentRoute: () => AuthRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
-	interface FileRoutesByPath {
-		'/': {
-			id: '/';
-			path: '/';
-			fullPath: '/';
-			preLoaderRoute: typeof IndexImport;
-			parentRoute: typeof rootRoute;
-		};
-		'/$': {
-			id: '/$';
-			path: '/$';
-			fullPath: '/$';
-			preLoaderRoute: typeof SplatImport;
-			parentRoute: typeof rootRoute;
-		};
-		'/_auth': {
-			id: '/_auth';
-			path: '';
-			fullPath: '';
-			preLoaderRoute: typeof AuthImport;
-			parentRoute: typeof rootRoute;
-		};
-		'/about': {
-			id: '/about';
-			path: '/about';
-			fullPath: '/about';
-			preLoaderRoute: typeof AboutImport;
-			parentRoute: typeof rootRoute;
-		};
-		'/login': {
-			id: '/login';
-			path: '/login';
-			fullPath: '/login';
-			preLoaderRoute: typeof LoginImport;
-			parentRoute: typeof rootRoute;
-		};
-		'/_auth/private': {
-			id: '/_auth/private';
-			path: '/private';
-			fullPath: '/private';
-			preLoaderRoute: typeof AuthPrivateImport;
-			parentRoute: typeof AuthImport;
-		};
-		'/components/button': {
-			id: '/components/button';
-			path: '/components/button';
-			fullPath: '/components/button';
-			preLoaderRoute: typeof ComponentsButtonImport;
-			parentRoute: typeof rootRoute;
-		};
-		'/todos/': {
-			id: '/todos/';
-			path: '/todos';
-			fullPath: '/todos';
-			preLoaderRoute: typeof TodosIndexImport;
-			parentRoute: typeof rootRoute;
-		};
-	}
+  interface FileRoutesByPath {
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/$': {
+      id: '/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof SplatImport
+      parentRoute: typeof rootRoute
+    }
+    '/_auth': {
+      id: '/_auth'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof AuthImport
+      parentRoute: typeof rootRoute
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutImport
+      parentRoute: typeof rootRoute
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginImport
+      parentRoute: typeof rootRoute
+    }
+    '/_auth/private': {
+      id: '/_auth/private'
+      path: '/private'
+      fullPath: '/private'
+      preLoaderRoute: typeof AuthPrivateImport
+      parentRoute: typeof AuthImport
+    }
+    '/todos/': {
+      id: '/todos/'
+      path: '/todos'
+      fullPath: '/todos'
+      preLoaderRoute: typeof TodosIndexImport
+      parentRoute: typeof rootRoute
+    }
+  }
 }
 
 // Create and export the route tree
 
 interface AuthRouteChildren {
-	AuthPrivateRoute: typeof AuthPrivateRoute;
+  AuthPrivateRoute: typeof AuthPrivateRoute
 }
 
 const AuthRouteChildren: AuthRouteChildren = {
-	AuthPrivateRoute: AuthPrivateRoute,
-};
+  AuthPrivateRoute: AuthPrivateRoute,
+}
 
-const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren);
+const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
 
 export interface FileRoutesByFullPath {
-	'/': typeof IndexRoute;
-	'/$': typeof SplatRoute;
-	'': typeof AuthRouteWithChildren;
-	'/about': typeof AboutRoute;
-	'/login': typeof LoginRoute;
-	'/private': typeof AuthPrivateRoute;
-	'/components/button': typeof ComponentsButtonRoute;
-	'/todos': typeof TodosIndexRoute;
+  '/': typeof IndexRoute
+  '/$': typeof SplatRoute
+  '': typeof AuthRouteWithChildren
+  '/about': typeof AboutRoute
+  '/login': typeof LoginRoute
+  '/private': typeof AuthPrivateRoute
+  '/todos': typeof TodosIndexRoute
 }
 
 export interface FileRoutesByTo {
-	'/': typeof IndexRoute;
-	'/$': typeof SplatRoute;
-	'': typeof AuthRouteWithChildren;
-	'/about': typeof AboutRoute;
-	'/login': typeof LoginRoute;
-	'/private': typeof AuthPrivateRoute;
-	'/components/button': typeof ComponentsButtonRoute;
-	'/todos': typeof TodosIndexRoute;
+  '/': typeof IndexRoute
+  '/$': typeof SplatRoute
+  '': typeof AuthRouteWithChildren
+  '/about': typeof AboutRoute
+  '/login': typeof LoginRoute
+  '/private': typeof AuthPrivateRoute
+  '/todos': typeof TodosIndexRoute
 }
 
 export interface FileRoutesById {
-	__root__: typeof rootRoute;
-	'/': typeof IndexRoute;
-	'/$': typeof SplatRoute;
-	'/_auth': typeof AuthRouteWithChildren;
-	'/about': typeof AboutRoute;
-	'/login': typeof LoginRoute;
-	'/_auth/private': typeof AuthPrivateRoute;
-	'/components/button': typeof ComponentsButtonRoute;
-	'/todos/': typeof TodosIndexRoute;
+  __root__: typeof rootRoute
+  '/': typeof IndexRoute
+  '/$': typeof SplatRoute
+  '/_auth': typeof AuthRouteWithChildren
+  '/about': typeof AboutRoute
+  '/login': typeof LoginRoute
+  '/_auth/private': typeof AuthPrivateRoute
+  '/todos/': typeof TodosIndexRoute
 }
 
 export interface FileRouteTypes {
-	fileRoutesByFullPath: FileRoutesByFullPath;
-	fullPaths:
-		| '/'
-		| '/$'
-		| ''
-		| '/about'
-		| '/login'
-		| '/private'
-		| '/components/button'
-		| '/todos';
-	fileRoutesByTo: FileRoutesByTo;
-	to:
-		| '/'
-		| '/$'
-		| ''
-		| '/about'
-		| '/login'
-		| '/private'
-		| '/components/button'
-		| '/todos';
-	id:
-		| '__root__'
-		| '/'
-		| '/$'
-		| '/_auth'
-		| '/about'
-		| '/login'
-		| '/_auth/private'
-		| '/components/button'
-		| '/todos/';
-	fileRoutesById: FileRoutesById;
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/' | '/$' | '' | '/about' | '/login' | '/private' | '/todos'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '/$' | '' | '/about' | '/login' | '/private' | '/todos'
+  id:
+    | '__root__'
+    | '/'
+    | '/$'
+    | '/_auth'
+    | '/about'
+    | '/login'
+    | '/_auth/private'
+    | '/todos/'
+  fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-	IndexRoute: typeof IndexRoute;
-	SplatRoute: typeof SplatRoute;
-	AuthRoute: typeof AuthRouteWithChildren;
-	AboutRoute: typeof AboutRoute;
-	LoginRoute: typeof LoginRoute;
-	ComponentsButtonRoute: typeof ComponentsButtonRoute;
-	TodosIndexRoute: typeof TodosIndexRoute;
+  IndexRoute: typeof IndexRoute
+  SplatRoute: typeof SplatRoute
+  AuthRoute: typeof AuthRouteWithChildren
+  AboutRoute: typeof AboutRoute
+  LoginRoute: typeof LoginRoute
+  TodosIndexRoute: typeof TodosIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-	IndexRoute: IndexRoute,
-	SplatRoute: SplatRoute,
-	AuthRoute: AuthRouteWithChildren,
-	AboutRoute: AboutRoute,
-	LoginRoute: LoginRoute,
-	ComponentsButtonRoute: ComponentsButtonRoute,
-	TodosIndexRoute: TodosIndexRoute,
-};
+  IndexRoute: IndexRoute,
+  SplatRoute: SplatRoute,
+  AuthRoute: AuthRouteWithChildren,
+  AboutRoute: AboutRoute,
+  LoginRoute: LoginRoute,
+  TodosIndexRoute: TodosIndexRoute,
+}
 
 export const routeTree = rootRoute
-	._addFileChildren(rootRouteChildren)
-	._addFileTypes<FileRouteTypes>();
+  ._addFileChildren(rootRouteChildren)
+  ._addFileTypes<FileRouteTypes>()
 
 /* ROUTE_MANIFEST_START
 {
@@ -247,7 +211,6 @@ export const routeTree = rootRoute
         "/_auth",
         "/about",
         "/login",
-        "/components/button",
         "/todos/"
       ]
     },
@@ -272,9 +235,6 @@ export const routeTree = rootRoute
     "/_auth/private": {
       "filePath": "_auth/private.tsx",
       "parent": "/_auth"
-    },
-    "/components/button": {
-      "filePath": "components/button.tsx"
     },
     "/todos/": {
       "filePath": "todos/index.tsx"

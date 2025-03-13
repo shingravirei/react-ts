@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { HTTPError } from 'ky';
-import { toast } from 'sonner';
 import { useGetTodos } from '~/features/todos/api/get-todo';
 import { useSaveTodo } from '~/features/todos/api/save-todo';
 
@@ -19,15 +18,11 @@ function Todos() {
 	const handleSaveTodo = async () => {
 		try {
 			await saveTodoMutation.mutateAsync();
-
-			toast.success('Saved new todo with success!', {
-				description: 'some big description here',
-			});
 		} catch (error) {
 			if (error instanceof HTTPError) {
-				toast.error(error.message);
+				console.log(error);
 			} else {
-				toast.error('Something went wrong, please try again!');
+				console.log(error);
 			}
 		}
 	};
@@ -41,6 +36,7 @@ function Todos() {
 			>
 				save random todo
 			</button>
+
 			{getTodosQuery.data?.map((todo) => (
 				<div key={todo.id}>{todo.title}</div>
 			))}
