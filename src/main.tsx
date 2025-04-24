@@ -6,7 +6,7 @@ import '~/main.css';
 const container = document.querySelector('#root');
 
 if (!container) {
-	throw new Error('root does not exists');
+	throw new Error('root element does not exists');
 }
 
 const root = ReactDOMClient.createRoot(container);
