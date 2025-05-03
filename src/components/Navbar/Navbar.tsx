@@ -1,6 +1,5 @@
 import { Link } from '@tanstack/react-router';
 import { ReactNode } from 'react';
-import { tv } from 'tailwind-variants';
 import { useAuthStore } from '~/features/auth/store/auth';
 
 interface NavLinkProps {
@@ -13,20 +12,13 @@ const NavLink = ({ to, children }: NavLinkProps) => (
 	</Link>
 );
 
-const navbar = tv({
-	slots: {
-		base: 'flex h-10 items-center justify-center',
-	},
-});
-const { base } = navbar();
-
 export const Navbar = () => {
 	const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
 	return (
 		<header>
-			<nav className={base()}>
-				<ul className='flex justify-center gap-2'>
+			<nav>
+				<ul>
 					<li>
 						<NavLink to='/'>Home</NavLink>
 					</li>
