@@ -14,7 +14,6 @@ export default tseslint.config(
 	reactPlugin.configs.flat['jsx-runtime'],
 	eslintPluginUnicorn.configs['recommended'],
 	jsxA11y.flatConfigs.recommended,
-	...pluginQuery.configs['flat/recommended'],
 	reactHooks.configs.recommended,
 	{
 		languageOptions: {
